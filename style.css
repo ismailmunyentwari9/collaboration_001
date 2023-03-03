@@ -1,0 +1,39 @@
+#big-holder{
+    height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#list-holder{
+    background-color:#ffffff;
+    width: 60%;
+    height:auto;
+    box-shadow: 12px 12px 12px gray;
+}
+#header{
+    border-bottom: 0.2px solid rgb(163, 157, 157);
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+#header span{
+    margin-right: 12px;
+}
+#lists{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.2px solid rgb(163, 157, 157);
+    align-items:center;
+    padding: 15px 12px;
+    font-size:20px;
+    
+}
+#coplete{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-size: 25px;
+  background-color: rgb(164, 156, 146);
+  height:10vh;
+}
