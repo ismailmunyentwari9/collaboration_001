@@ -37,3 +37,6 @@
   background-color: rgb(164, 156, 146);
   height:10vh;
 }
+i{
+    cursor: pointer;
+}
