@@ -20,7 +20,7 @@
 #header span{
     margin-right: 12px;
 }
-#lists{
+.lists{
     display: flex;
     justify-content: space-between;
     border-bottom: 0.2px solid rgb(163, 157, 157);

@@ -24,7 +24,7 @@ form.addEventListener('submit',(e) =>{
   class UI {
     static displayDatas() {
       let data =listArray.map((items) => {
-        return`<div id="lists" data-id=${items.id}>
+        return`<div class="lists" id=${items.id}>
           <span><input class="form-check-input" type="checkbox"> <span>${items.list}</span></span>
           <span><i class="fa fa-ellipsis-v"></i></span>
         </div>`;
@@ -51,9 +51,14 @@ form.addEventListener('submit',(e) =>{
       e.target.parentElement.parentElement.style.backgroundColor='#95577546';
     }
     else if (e.target.classList.contains('fa-trash')) {
-      const idValue = e.target.parentElement.parentElement.dataset.id;
-      const index = listArray.findIndex(item => item.id === parseInt(idValue));
+      const idValue = e.target.parentElement.parentElement.id;
+      
+      const index = idValue-1;
       listArray.splice(index, 1);
+      for (let i = 0; i < listArray.length; i += 1) {
+        listArray[i].id = i + 1;
+      }
+    
       localStorage.setItem('listStorage', JSON.stringify(listArray));
       UI.displayDatas();
     }
