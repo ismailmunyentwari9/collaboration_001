@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.89% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/39</span>
+                <span class='fraction'>18/42</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/36</span>
+                <span class='fraction'>18/39</span>
             </div>
         
             
@@ -139,7 +139,8 @@
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,27 +154,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,7 +177,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,38 +230,39 @@ class ListObjects{
     }
 }
 &nbsp;
+const addList = (value, id) =&gt; {
+  const listObject = new ListObjects(value, false, id);
+  listArray= [...listArray,listObject];
+  localStorage.setItem('listStorage', JSON.stringify(listArray));
+  // return listArray;
+  UI.displayDatas(listArray);
+}
+&nbsp;
+export class UI {
+  static displayDatas(listArray) {
+    let data =listArray.map((items) =&gt; {
+      return`&lt;div class="lists" id=${items.id}&gt;
+        &lt;span&gt;&lt;input class="form-check-input" type="checkbox"&gt; &lt;span&gt;${items.list}&lt;/span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;i class="fa fa-ellipsis-v"&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;/div&gt;`;
+    });
+    listContainer.innerHTML = data.join('');
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  st</span>atic cleanInputs(){
+<span class="cstat-no" title="statement not covered" >    inputValue.value="";</span>
+  }
+}
+&nbsp;
 <span class="missing-if-branch" title="if path not taken" >I</span>if(form){<span class="cstat-no" title="statement not covered" >form.addEventListener('submit',<span class="fstat-no" title="function not covered" >(e</span>) =&gt;{</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-    //addList();
-<span class="cstat-no" title="statement not covered" >    UI.displayDatas();</span>
+    const id = <span class="cstat-no" title="statement not covered" >listArray.length+1;</span>
+    const value = <span class="cstat-no" title="statement not covered" >inputValue.value;</span>
+<span class="cstat-no" title="statement not covered" >    addList(value, id);</span>
 <span class="cstat-no" title="statement not covered" >    UI.cleanInputs();</span>
   })
 }
 &nbsp;
-  const addList = (list,complete,id) =&gt; {
-    // id = listArray.length+1;
-    // list = inputValue.value;
-    // complete = false;
-    const listObject = new ListObjects(list,complete,id);
-    listArray= [...listArray,listObject];
-    localStorage.setItem('listStorage', JSON.stringify(listArray));
-  }
-  
-  class UI {
-<span class="fstat-no" title="function not covered" >    st</span>atic displayDatas() {
-      let data =<span class="cstat-no" title="statement not covered" >listArray.map(<span class="fstat-no" title="function not covered" >(i</span>tems) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        return`&lt;div class="lists" id=${items.id}&gt;</span>
-          &lt;span&gt;&lt;input class="form-check-input" type="checkbox"&gt; &lt;span&gt;${items.list}&lt;/span&gt;&lt;/span&gt;
-          &lt;span&gt;&lt;i class="fa fa-ellipsis-v"&gt;&lt;/i&gt;&lt;/span&gt;
-        &lt;/div&gt;`;
-      });
-<span class="cstat-no" title="statement not covered" >      listContainer.innerHTML = data.join('');</span>
-    }
-  
-<span class="fstat-no" title="function not covered" >    st</span>atic cleanInputs(){
-<span class="cstat-no" title="statement not covered" >      inputValue.value="";</span>
-    }
-  }
   
   window.addEventListener('load',<span class="fstat-no" title="function not covered" >()</span> =&gt;{
 <span class="cstat-no" title="statement not covered" >    if(localStorage.getItem('listStorage')){</span>
@@ -290,7 +293,7 @@ class ListObjects{
 }
   
 &nbsp;
-  export {addList};
+  export {addList, ListObjects};
   </pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -298,7 +301,7 @@ class ListObjects{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-05T16:31:38.708Z
+                at 2023-03-12T13:32:13.546Z
             </div>
         <script src="prettify.js"></script>
         <script>

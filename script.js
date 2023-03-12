@@ -11,38 +11,38 @@ class ListObjects{
     }
 }
 
+const addList = (value, id) => {
+  const listObject = new ListObjects(value, false, id);
+  listArray= [...listArray,listObject];
+  localStorage.setItem('listStorage', JSON.stringify(listArray));
+  UI.displayDatas();
+}
+
+export class UI {
+  static displayDatas() {
+    let data =listArray.map((items) => {
+      return`<div class="lists" id=${items.id}>
+        <span><input class="form-check-input" type="checkbox"> <span>${items.list}</span></span>
+        <span><i class="fa fa-ellipsis-v"></i></span>
+      </div>`;
+    });
+    listContainer.innerHTML = data.join('');
+  }
+
+  static cleanInputs(){
+    inputValue.value="";
+  }
+}
+
 if(form){form.addEventListener('submit',(e) =>{
     e.preventDefault();
-    //addList();
-    UI.displayDatas();
+    const id = listArray.length+1;
+    const value = inputValue.value;
+    addList(value, id);
     UI.cleanInputs();
   })
 }
 
-  const addList = (list,complete,id) => {
-    // id = listArray.length+1;
-    // list = inputValue.value;
-    // complete = false;
-    const listObject = new ListObjects(list,complete,id);
-    listArray= [...listArray,listObject];
-    localStorage.setItem('listStorage', JSON.stringify(listArray));
-  }
-  
-  class UI {
-    static displayDatas() {
-      let data =listArray.map((items) => {
-        return`<div class="lists" id=${items.id}>
-          <span><input class="form-check-input" type="checkbox"> <span>${items.list}</span></span>
-          <span><i class="fa fa-ellipsis-v"></i></span>
-        </div>`;
-      });
-      listContainer.innerHTML = data.join('');
-    }
-  
-    static cleanInputs(){
-      inputValue.value="";
-    }
-  }
   
   window.addEventListener('load',() =>{
     if(localStorage.getItem('listStorage')){
@@ -73,5 +73,5 @@ if(form){form.addEventListener('submit',(e) =>{
 }
   
 
-  export {addList};
+  export {addList, ListObjects};
   
