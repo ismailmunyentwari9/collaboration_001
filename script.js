@@ -11,15 +11,22 @@ class ListObjects{
     }
 }
 
-form.addEventListener('submit',(e) =>{
+if(form){form.addEventListener('submit',(e) =>{
     e.preventDefault();
-    const id = listArray.length+1;
-    const listObject = new ListObjects(inputValue.value,false,id);
-    listArray= [...listArray,listObject];
-    localStorage.setItem('listStorage', JSON.stringify(listArray));
+    //addList();
     UI.displayDatas();
     UI.cleanInputs();
   })
+}
+
+  const addList = (list,complete,id) => {
+    // id = listArray.length+1;
+    // list = inputValue.value;
+    // complete = false;
+    const listObject = new ListObjects(list,complete,id);
+    listArray= [...listArray,listObject];
+    localStorage.setItem('listStorage', JSON.stringify(listArray));
+  }
   
   class UI {
     static displayDatas() {
@@ -44,7 +51,7 @@ form.addEventListener('submit',(e) =>{
     }
   });
   
-  listContainer.addEventListener('click', (e) =>{
+  if(listContainer){listContainer.addEventListener('click', (e) =>{
     if(e.target.classList.contains('fa-ellipsis-v')){
       e.target.classList.remove('fa-ellipsis-v');
       e.target.classList.add('fa-trash');
@@ -63,5 +70,8 @@ form.addEventListener('submit',(e) =>{
       UI.displayDatas();
     }
   })
+}
   
+
+  export {addList};
   
