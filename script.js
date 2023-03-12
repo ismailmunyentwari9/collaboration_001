@@ -51,7 +51,7 @@ form.addEventListener('submit',(e) =>{
       e.target.parentElement.parentElement.style.backgroundColor='#95577546';
     }
     else if (e.target.classList.contains('fa-trash')) {
-      const idValue = e.target.parentElement.parentElement.id;
+      const idValue = e.target.parentElement.parentElement  .id;
       
       const index = idValue-1;
       listArray.splice(index, 1);
